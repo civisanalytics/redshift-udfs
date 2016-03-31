@@ -778,3 +778,19 @@
         finalizefunc = agg_finalize_second_max
       );
     
+
+      /*
+      REMOVE_ACCENTS
+      Remove accents from a varchar
+
+      Examples:
+      'André' --> 'Andre'
+      'más' --> mas
+      */
+      create or replace function remove_accents(accented VARCHAR)
+        returns varchar
+        stable as $$
+          import unicodedata
+        return str(''.join(c for c in unicodedata.normalize('NFD', unicode(accented,'utf8')) if unicodedata.category(c) != 'Mn'))
+      $$ LANGUAGE plpythonu;
+
