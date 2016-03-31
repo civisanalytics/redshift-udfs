@@ -792,5 +792,5 @@
         stable as $$
           import unicodedata
         return str(''.join(c for c in unicodedata.normalize('NFD', unicode(accented,'utf8')) if unicodedata.category(c) != 'Mn'))
-      $$ LANGUAGE plpythonu;
+        $$ LANGUAGE plpythonu;
 
