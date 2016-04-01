@@ -785,7 +785,7 @@
 
       Examples:
       'André' --> 'Andre'
-      'más' --> mas
+      'más' --> 'mas'
       */
       create or replace function remove_accents(accented VARCHAR)
         returns varchar
